@@ -1,6 +1,5 @@
+import 'package:aierto_test/core/models/viewstate.dart';
 import 'package:flutter/widgets.dart';
-
-enum ViewState { Idle, Busy }
 
 class BaseModel extends ChangeNotifier {
   ViewState _state = ViewState.Idle;
