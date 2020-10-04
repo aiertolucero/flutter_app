@@ -34,11 +34,7 @@ class ProfileView extends StatelessWidget {
                       SizedBox(height: 24.0),
                       Text('Name: ${Provider.of<User>(context).name}'),
                       Text('GIT URL: ${Provider.of<User>(context).gitUrl}'),
-                      SizedBox(height: 48.0),
-                      RaisedButton(
-                        onPressed: () {},
-                        child: Text('Logout'),
-                      ),
+                      Text('Location: ${Provider.of<User>(context).location}'),
                     ],
                   )),
             bottomNavigationBar: Navbar()));
