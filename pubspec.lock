@@ -76,6 +76,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  flutter_bootstrap:
+    dependency: "direct main"
+    description:
+      name: flutter_bootstrap
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -123,6 +130,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.4"
+  intl:
+    dependency: "direct main"
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.16.1"
   matcher:
     dependency: transitive
     description:
