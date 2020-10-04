@@ -5,6 +5,7 @@ import 'package:aierto_test/core/viewmodels/profile_model.dart';
 import 'package:get_it/get_it.dart';
 
 import 'core/viewmodels/navbar_model.dart';
+import 'core/viewmodels/weather_model.dart';
 
 GetIt locator = GetIt.instance;
 
@@ -15,4 +16,5 @@ void setupLocator() {
   locator.registerFactory(() => LoginModel());
   locator.registerFactory(() => NavbarModel());
   locator.registerFactory(() => ProfileModel());
+  locator.registerFactory(() => WeatherModel());
 }
