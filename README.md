@@ -10,3 +10,36 @@
 - geolocator - for getting current longtitude and latitude
 - intl - for date formats
 - flutter_bootstrap - for hiding fields on specific device size
+### State Management using Provider
+```
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return StreamProvider<User>(
+      initialData: User.initial(),
+      create: (BuildContext context) =>
+          locator<UserService>().userController.stream,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(),
+        initialRoute: 'login',
+        onGenerateRoute: ViewRouter.generateRoute,
+      ),
+    );
+  }
+}
+```
+### Service Locator using Get_It
+```
+GetIt locator = GetIt.instance;
+
+void setupLocator() {
+  locator.registerLazySingleton(() => UserService());
+  locator.registerLazySingleton(() => ApiService());
+
+  locator.registerFactory(() => LoginModel());
+  locator.registerFactory(() => NavbarModel());
+  locator.registerFactory(() => ProfileModel());
+  locator.registerFactory(() => WeatherModel());
+}
+```
