@@ -1,5 +1,5 @@
 import 'package:aierto_test/core/models/viewstate.dart';
-import 'package:aierto_test/core/viewmodels/profile_model.dart';
+import 'package:aierto_test/core/viewmodels/weather_model.dart';
 import 'package:aierto_test/ui/views/base_view.dart';
 import 'package:aierto_test/ui/widgets/navbar_view.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ class WeatherView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String currentDateTime = DateFormat("MM/dd/yyyy").format(DateTime.now());
-    return BaseView<ProfileModel>(
+    return BaseView<WeatherModel>(
         onModelReady: (model) => model.getForeCast(),
         builder: (context, model, child) => Scaffold(
             body: model.state == ViewState.Busy
