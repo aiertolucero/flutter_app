@@ -15,28 +15,88 @@ class WeatherView extends StatelessWidget {
         builder: (context, model, child) => Scaffold(
             body: model.state == ViewState.Busy
                 ? Center(child: CircularProgressIndicator())
-                : Center(
-                    child: Table(border: TableBorder.all(), children: [
-                    TableRow(children: [
-                      Column(children: [Text('Date(mm/dd/yyyy)')]),
-                      Column(children: [Text('Temp(F)')]),
-                      Column(children: [Text('Description')]),
-                      Column(children: [Text('Main')]),
-                      Column(children: [Text('Pressuer')]),
-                      Column(children: [Text('Humidity')])
-                    ]),
-                    TableRow(children: [
-                      Column(children: [Text('$currentDateTime')]),
+                : BootstrapContainer(children: <Widget>[
+                    BootstrapRow(height: 100, children: <BootstrapCol>[
                       BootstrapCol(
-                          sizes: 'col-12',
-                          invisibleForSizes: 'lg',
-                          child: Center(child: Text(model.forecast.temp))),
-                      Column(children: [Text(model.forecast.description)]),
-                      Column(children: [Text(model.forecast.main)]),
-                      Column(children: [Text(model.forecast.pressure)]),
-                      Column(children: [Text(model.forecast.humidity)])
+                        sizes: 'col-sm-6 col-md-2',
+                        child: ContentWidget(text: 'Date(mm/dd/yyyy)'),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-sm-6 col-md-2',
+                        child: ContentWidget(text: 'Temp(F)'),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-md-2',
+                        invisibleForSizes: 'xs',
+                        child: ContentWidget(text: 'Description'),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-md-2',
+                        invisibleForSizes: 'xs',
+                        child: ContentWidget(text: 'Main'),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-md-2',
+                        invisibleForSizes: 'xs',
+                        child: ContentWidget(text: 'Pressure'),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-md-2',
+                        invisibleForSizes: 'xs',
+                        child: ContentWidget(text: 'Humidity'),
+                      )
+                    ]),
+                    BootstrapRow(height: 100, children: <BootstrapCol>[
+                      BootstrapCol(
+                        sizes: 'col-sm-6 col-md-2',
+                        child: ContentWidget(text: '$currentDateTime'),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-sm-6 col-md-2',
+                        child: ContentWidget(text: model.forecast.temp),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-md-2',
+                        invisibleForSizes: 'xs',
+                        child: ContentWidget(text: model.forecast.description),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-md-2',
+                        invisibleForSizes: 'xs',
+                        child: ContentWidget(text: model.forecast.main),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-md-2',
+                        invisibleForSizes: 'xs',
+                        child: ContentWidget(text: model.forecast.pressure),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-md-2',
+                        invisibleForSizes: 'xs',
+                        child: ContentWidget(text: model.forecast.humidity),
+                      )
                     ])
-                  ])),
+                  ]),
             bottomNavigationBar: Navbar()));
+  }
+}
+
+class ContentWidget extends StatelessWidget {
+  const ContentWidget({
+    Key key,
+    this.text,
+    this.color,
+  }) : super(key: key);
+
+  final String text;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(top: 50.0),
+      color: color,
+      child: Text(text),
+    );
   }
 }
